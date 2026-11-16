@@ -1,0 +1,28 @@
+nav.navbar {
+    background-color: rgba(137, 165, 255, 0.5);
+    backdrop-filter: blur(10px);
+    border-radius: 0px 0px 600px 600px;
+    padding: 0px 30px;
+
+    .navbar-brand {
+        width: 80px;
+
+        img {
+            width: 100%;
+        }
+    }
+
+    .collapse.navbar-collapse {
+        .navbar-nav {
+            .nav-item {
+                width: fit-content;
+
+                i {
+                    color: var(--main-color);
+                    font-size: 24px;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}

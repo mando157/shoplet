@@ -17,10 +17,23 @@
 
   * input() signal -> Parent Send Data To Child (Read Only Signal)
   * Output() signal -> Child Send Data To Parent (Read Only Signal)
+  * model() signal -> two way data binding [()] (writeable signal) 
+
+  * Access child from parent (viewChildren() -> array , viewChild<componentType>(componentName) -> viewChild<Navbar>(child1) "child1 -> #child1 in tag")
+
+  * We can make a General Object by service or make a function common in any component (by injection)
 
 -->
 
 
-<p appTestDirective>Hi from appTestDirective</p>
+<!-- <p appTestDirective>Hi from appTestDirective</p>
 
-<app-header [name]="parentName" [age]="ageFromParent"></app-header>
+<app-header [name]="parentName" [age]="ageFromParent" [(count)]="countingNum" >
+  <p>from Parent</p>
+  <p pParent>from pParent</p>
+</app-header>
+
+<p>{{countingNum()}}</p>
+<button (click)="counter()">inc</button> -->
+
+<app-header></app-header>

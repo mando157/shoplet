@@ -1,2 +1,19 @@
-<p>{{name()}}</p>
+<!-- <p>{{name()}}</p>
 <p>{{age()}}</p>
+
+<button (click)="counter()">inc header</button>
+
+<app-navbar #child1 ></app-navbar>
+<button (click)="hello()">Hello</button>
+
+* element from parent *
+<ng-content #pFromParent>
+    Hi -> * Default Value *
+</ng-content>
+
+<ng-container select="[pParent]"></ng-container> 
+
+-->
+
+<app-navbar></app-navbar>
+<app-products-list class="p-5" [products]="products"></app-products-list>

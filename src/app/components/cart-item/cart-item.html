@@ -1,0 +1,45 @@
+<div class="cartItem card border-0 shadow-sm rounded-4 p-3 mb-3">
+    <div class="row align-items-center g-3">
+
+        <div class="col-auto">
+            <img [src]="cartItem().img" class="product-img rounded-3" [alt]="cartItem().name">
+        </div>
+
+        <div class="col">
+            <h6 class="product-name mb-2">
+                {{ cartItem().name }}
+            </h6>
+
+            <p class="unit-price text-secondary mb-2">
+                {{ cartItem().price | currency }}
+            </p>
+
+            <div class="quantity-control d-flex align-items-center gap-2">
+                <button class="btn quantity-btn" (click)="cartProductService.subtractingProductQuantity(cartItem().id)"
+                    type="button">−</button>
+
+                <span class="fw-semibold">
+                    {{ cartItem().quantity }}
+                </span>
+
+                <button class="btn quantity-btn" (click)="cartProductService.addProductToCart(cartItem())"
+                    type="button">+</button>
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-auto">
+            <div class="d-flex flex-sm-column justify-content-between align-items-center align-items-sm-end">
+                <span class="total-price fw-bold">
+                    {{ (cartItem().price * cartItem().quantity) | currency }}
+                </span>
+
+                <button class="btn remove-btn p-0 mt-sm-2" (click)="cartProductService.removeProduct(cartItem().id)"
+                    type="button">
+                    <i class="fa-regular fa-trash-can me-1"></i>
+                    Remove
+                </button>
+            </div>
+        </div>
+
+    </div>
+</div>

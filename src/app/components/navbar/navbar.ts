@@ -6,4 +6,8 @@ import { Component } from '@angular/core';
   styleUrl: './navbar.scss',
   templateUrl: './navbar.html',
 })
-export class Navbar {}
+export class Navbar {
+  // public printChildren() {
+  //   console.log("hello from child");
+  // }
+}
