@@ -1,18 +1,23 @@
 <div class="container">
     <div class="row flex-column-reverse flex-sm-row row-gap-4">
-        <div class="products col-sm-8">
+        <div class="products col-sm-6 col-xl-8">
 
-            <div class="title border-0 shadow-sm rounded-3 p-3">
+            <div class="title border-0 shadow-sm rounded-3 p-3 d-flex flex-column flex-md-row justify-content-between align-items-center gap-3">
                 <h2><i class="fa-solid fa-bag-shopping"></i> All Products</h2>
+
+                <div class="buttons d-flex gap-2">
+                    <button class="Phone" (click)="phoneCategory()">Phone</button>
+                    <button class="Watches" (click)="watchCategory()">Watches</button>
+                </div>
             </div>
 
             <div class="row py-3 row-gap-4">
                 @for (product of products(); track product.id) {
-                <app-product [product]="product" class="col-lg-4"></app-product>
+                <app-product [product]="product" class="col-lg-6 col-xl-4"></app-product>
                 }
             </div>
         </div>
-        <div class="cart col-sm-4">
+        <div class="cart col-sm-6 col-xl-4">
             <div class="card text-center">
                 <div class="card-header d-flex justify-content-between align-items-center">
                     <h5>Shopping Cart <i class="fa-solid fa-cart-shopping fa-shake"></i></h5>

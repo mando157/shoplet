@@ -1,4 +1,4 @@
-import { Component, input, model, signal, viewChildren } from '@angular/core';
+import { Component, computed, input, model, signal, viewChildren } from '@angular/core';
 import { Navbar } from '../navbar/navbar';
 import { ProductModel } from '../../models/product.model';
 import { ProductsList } from '../products-list/products-list';
@@ -130,106 +130,110 @@ export class Header {
 
   smartWatches: ProductModel[] = [
     {
-      id: 1,
+      id: 13,
       name: "Apple Watch Ultra 3",
       price: 799,
       description: "Premium rugged smartwatch with advanced health tracking, GPS, and exceptional battery life.",
       discount: 10,
-      img: "assets/images/watches/product-1.png"
+      img: "assets/images/watches/p-1.png"
     },
     {
-      id: 2,
+      id: 14,
       name: "Apple Watch Series 11",
       price: 399,
       description: "Elegant smartwatch with advanced health monitoring, fitness tracking, and a stunning Retina display.",
       discount: 0,
-      img: "assets/images/watches/product-2.png"
+      img: "assets/images/watches/p-2.png"
     },
     {
-      id: 3,
+      id: 15,
       name: "Samsung Galaxy Watch 8 Classic",
       price: 499,
       description: "Classic rotating bezel design with advanced fitness tracking and powerful health monitoring features.",
       discount: 15,
-      img: "assets/images/watches/product-3.png"
+      img: "assets/images/watches/p-3.png"
     },
     {
-      id: 4,
+      id: 16,
       name: "Samsung Galaxy Watch Ultra",
       price: 649,
       description: "Durable outdoor smartwatch with advanced GPS, comprehensive health tracking, and long battery life.",
       discount: 12,
-      img: "assets/images/watches/product-4.png"
+      img: "assets/images/watches/p-4.png"
     },
     {
-      id: 5,
+      id: 17,
       name: "Google Pixel Watch 4",
       price: 349,
       description: "Stylish smartwatch with Fitbit health tracking, Google Assistant, and seamless Android integration.",
       discount: 0,
-      img: "assets/images/watches/product-5.png"
+      img: "assets/images/watches/p-5.png"
     },
     {
-      id: 6,
+      id: 18,
       name: "Garmin Fenix 8",
       price: 999,
       description: "Advanced multisport smartwatch designed for athletes with premium GPS and extensive training metrics.",
       discount: 8,
-      img: "assets/images/watches/product-6.png"
+      img: "assets/images/watches/p-6.png"
     },
     {
-      id: 7,
+      id: 19,
       name: "Huawei Watch GT 5 Pro",
       price: 329,
       description: "Premium smartwatch featuring a titanium design, accurate health monitoring, and impressive battery life.",
       discount: 20,
-      img: "assets/images/watches/product-7.png"
+      img: "assets/images/watches/p-7.png"
     },
     {
-      id: 8,
+      id: 20,
       name: "Xiaomi Watch S4",
       price: 159,
       description: "Affordable smartwatch with a vibrant AMOLED display, fitness tracking, and elegant design.",
       discount: 5,
-      img: "assets/images/watches/product-8.png"
+      img: "assets/images/watches/p-8.png"
     },
     {
-      id: 9,
+      id: 21,
       name: "OnePlus Watch 3",
       price: 329,
       description: "Powerful smartwatch with smooth performance, advanced health features, and long-lasting battery.",
       discount: 0,
-      img: "assets/images/watches/product-9.png"
+      img: "assets/images/watches/p-9.png"
     },
     {
-      id: 10,
+      id: 22,
       name: "Amazfit Balance 2",
       price: 299,
       description: "Smart fitness watch with advanced activity tracking, health insights, and premium AMOLED display.",
       discount: 10,
-      img: "assets/images/watches/product-10.png"
+      img: "assets/images/watches/p-10.png"
     },
     {
-      id: 11,
+      id: 23,
       name: "Nothing CMF Watch Pro 2",
       price: 69,
       description: "Minimalist smartwatch with a customizable design, bright display, and essential fitness features.",
       discount: 0,
-      img: "assets/images/watches/product-11.png"
+      img: "assets/images/watches/p-11.png"
     },
     {
-      id: 12,
+      id: 24,
       name: "Garmin Venu 4",
       price: 549,
       description: "Health-focused smartwatch with advanced fitness analytics, sleep tracking, and a beautiful AMOLED screen.",
       discount: 15,
-      img: "assets/images/watches/product-12.png"
+      img: "assets/images/watches/p-12.png"
     }
   ];
 
-  public isActive = false;
+  public isActive = signal<'phone' | 'watch'>('phone');
 
-  public products: ProductModel[] = [
-    ...((this.isActive) ? this.smartWatches : this.smartPhones)
-  ];
+  public products = computed<ProductModel[]>(() => {
+    return [
+      ...((this.isActive() !== 'phone')
+        ? this.smartWatches
+        : this.smartPhones)
+    ];
+  });
 }

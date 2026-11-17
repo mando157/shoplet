@@ -1,5 +1,5 @@
 .products {
-    .title{
+    .title {
         background-color: #fff;
 
         h2 {
@@ -10,6 +10,26 @@
             color: transparent !important;
             -webkit-text-fill-color: transparent;
             margin: 0;
+        }
+
+        .buttons {
+            button {
+                max-width: 150px;
+                min-width: 80px;
+                height: fit-content;
+                padding: 5px 0px;
+                border-radius: 5px;
+                border: 2px solid var(--main-color);
+                background: transparent;
+                color: var(--main-color);
+                font-weight: 500;
+                transition-duration: .3s;
+
+                &:hover {
+                    background: var(--main-color);
+                    color: #fff;
+                }
+            }
         }
     }
 }
@@ -51,7 +71,13 @@
 
             .chick {
                 color: var(--main-color);
+                transition-duration: .3s;
                 border-color: var(--main-color);
+
+                &:hover {
+                    background: var(--main-color);
+                    color: #fff;
+                }
             }
         }
     }
